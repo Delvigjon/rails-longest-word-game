@@ -1,0 +1,14 @@
+<h1>Here are your random letters:</h1>
+<ul>
+  <% @letters.each do |letter| %>
+    <li><%= letter %></li>
+  <% end %>
+</ul>
+<form action="/score" method="post" data-turbo="false">
+<div class="form-floating d-flex">
+  <input type="text" name="word" class="form-control " placeholder="Leave a comment here" id="floatingTextarea">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %>
+  <button type="submit" class="btn btn-primary">play</button>
+</div>
+</form>
